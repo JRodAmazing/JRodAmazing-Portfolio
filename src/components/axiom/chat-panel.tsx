@@ -18,10 +18,10 @@ interface ChatPanelProps {
 const WELCOME_MESSAGE = "I'm AXIOM, Justin's AI representative. I can tell you about his background, skills, projects, and availability. What would you like to know?";
 
 const SUGGESTED_QUESTIONS = [
-  "What's Justin's tech stack?",
-  "Tell me about his experience",
-  "What projects has he built?",
-  "Is he available for work?",
+  "Tell me about yourself",
+  "Walk me through a complex problem you solved",
+  "How do you handle tight deadlines?",
+  "What makes you different?",
 ];
 
 export function ChatPanel({ isOpen, onClose }: ChatPanelProps) {

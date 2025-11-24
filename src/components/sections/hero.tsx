@@ -6,8 +6,8 @@ import { Button } from '@/components/ui/button';
 
 export function Hero() {
   const heroRef = useRef<HTMLElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const taglineRef = useRef<HTMLParagraphElement>(null);
+  const introRef = useRef<HTMLDivElement>(null);
+  const valueRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -18,23 +18,29 @@ export function Hero() {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
 
-      tl.from(titleRef.current, {
+      tl.from(introRef.current, {
         y: 100,
         opacity: 0,
         duration: 1,
         delay: 0.2,
       })
-      .from(taglineRef.current, {
+      .from(valueRef.current, {
         y: 40,
         opacity: 0,
         duration: 0.8,
       }, '-=0.5')
+      .from('.value-item', {
+        y: 30,
+        opacity: 0,
+        stagger: 0.1,
+        duration: 0.6,
+      }, '-=0.4')
       .from(ctaRef.current, {
         y: 30,
         opacity: 0,
         scale: 0.9,
         duration: 0.6,
-      }, '-=0.4');
+      }, '-=0.3');
     }, heroRef);
 
     return () => ctx.revert();
@@ -51,28 +57,75 @@ export function Hero() {
         <div className="absolute left-1/4 top-1/3 h-[400px] w-[400px] rounded-full bg-nebula/10 blur-[100px]" />
       </div>
 
-      <div className="container-custom relative z-10 text-center">
-        {/* Main title */}
-        <h1
-          ref={titleRef}
-          className="font-display text-display-xl font-bold tracking-tight text-text-primary md:text-display-2xl"
-        >
-          Systems Architect
-          <span className="block text-gradient">Propulsion to Production</span>
-        </h1>
+      <div className="container-custom relative z-10">
+        {/* Introduction */}
+        <div ref={introRef} className="mb-8">
+          <h1 className="font-display text-display-lg font-bold tracking-tight text-text-primary md:text-display-xl lg:text-display-2xl">
+            Hey, I&apos;m Justin{' '}
+            <span className="text-gradient">&quot;JRod&quot;</span> Roden
+          </h1>
+          <p className="mt-4 font-display text-display-sm font-semibold text-plasma md:text-display-md">
+            AI Solutions Engineer
+          </p>
+          <p className="mt-2 text-body-lg text-text-secondary md:text-body-xl">
+            Heavy Equipment &amp; Construction Veteran • Former Rocket Test Engineer
+          </p>
+        </div>
 
-        {/* Tagline */}
-        <p
-          ref={taglineRef}
-          className="mx-auto mt-6 max-w-2xl text-body-xl text-text-secondary md:text-2xl"
-        >
-          From Launch Pads to Launch Days
-        </p>
+        {/* Value Snapshot */}
+        <div ref={valueRef} className="mb-10 max-w-4xl">
+          <p className="mb-8 text-body-lg text-text-secondary md:text-body-xl">
+            I design and ship AI-driven solutions that connect real-world machinery,
+            field operations, and enterprise workflows to modern software.
+          </p>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="value-item rounded-xl border border-steel bg-tungsten/50 p-4">
+              <div className="mb-2 flex items-center gap-2">
+                <span className="text-plasma">⚡</span>
+                <span className="font-display text-body-md font-semibold text-text-primary">10+ Years Experience</span>
+              </div>
+              <p className="text-body-sm text-text-secondary">
+                Leading heavy equipment diagnostics, fleet operations, and field service
+              </p>
+            </div>
+
+            <div className="value-item rounded-xl border border-steel bg-tungsten/50 p-4">
+              <div className="mb-2 flex items-center gap-2">
+                <span className="text-thrust">🚀</span>
+                <span className="font-display text-body-md font-semibold text-text-primary">Rocket Operations</span>
+              </div>
+              <p className="text-body-sm text-text-secondary">
+                Hands-on rocket engine test and launch operations experience
+              </p>
+            </div>
+
+            <div className="value-item rounded-xl border border-steel bg-tungsten/50 p-4">
+              <div className="mb-2 flex items-center gap-2">
+                <span className="text-ion">🤖</span>
+                <span className="font-display text-body-md font-semibold text-text-primary">AI Builder</span>
+              </div>
+              <p className="text-body-sm text-text-secondary">
+                Building AI copilots, estimators, and dashboards that turn messy ops data into decisions
+              </p>
+            </div>
+
+            <div className="value-item rounded-xl border border-steel bg-tungsten/50 p-4">
+              <div className="mb-2 flex items-center gap-2">
+                <span className="text-nebula">🔄</span>
+                <span className="font-display text-body-md font-semibold text-text-primary">End-to-End Thinker</span>
+              </div>
+              <p className="text-body-sm text-text-secondary">
+                Discovery → Architecture → Build → Integration → Rollout
+              </p>
+            </div>
+          </div>
+        </div>
 
         {/* CTAs */}
-        <div ref={ctaRef} className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <div ref={ctaRef} className="flex flex-col items-start gap-4 sm:flex-row">
           <Button variant="cta" size="lg">
-            <a href="#work">View Work</a>
+            <a href="#work">View Featured Builds</a>
           </Button>
           <Button variant="secondary" size="lg">
             <a href="#contact">Get in Touch</a>

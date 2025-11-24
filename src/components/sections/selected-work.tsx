@@ -10,22 +10,25 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
-    title: 'HeavyOps',
-    description: 'Fleet and financial optimization platform for equipment rental and construction operations',
-    tech: ['Next.js', 'Python', 'SQL', 'Power BI'],
-    status: 'live',
-  },
-  {
     title: 'FleetPulse',
-    description: 'Diagnostic and KPI tracking dashboard integrating CAN data (J1939) with budget metrics',
-    tech: ['React', 'Node.js', 'PostgreSQL'],
+    description: 'Diagnostic and KPI tracking dashboard integrating CAN data (J1939) with budget metrics for heavy equipment fleet management',
+    tech: ['React', 'Node.js', 'PostgreSQL', 'Python'],
     status: 'live',
+    highlight: 'Real-time equipment diagnostics',
   },
   {
-    title: 'ContractGuard Pro',
-    description: 'AI contract risk analysis tool for construction and aerospace procurement',
-    tech: ['Python', 'LangChain', 'OpenAI'],
-    status: 'in-progress',
+    title: 'Estimator AI',
+    description: 'AI-powered construction estimation tool that analyzes project specs and generates accurate cost breakdowns using historical data',
+    tech: ['Next.js', 'OpenAI', 'Python', 'PostgreSQL'],
+    status: 'live',
+    highlight: 'Turns specs into estimates',
+  },
+  {
+    title: 'Apex Recruiter Bot',
+    description: 'Intelligent recruiting chatbot that screens candidates, schedules interviews, and integrates with ATS systems',
+    tech: ['TypeScript', 'Anthropic', 'Node.js', 'Vercel'],
+    status: 'live',
+    highlight: 'Automated candidate screening',
   },
 ];
 
@@ -70,10 +73,13 @@ export function SelectedWork() {
     <Section ref={sectionRef} id="work" padding="lg">
       <h2
         ref={titleRef}
-        className="mb-12 font-display text-display-md font-bold text-text-primary md:text-display-lg"
+        className="mb-4 font-display text-display-md font-bold text-text-primary md:text-display-lg"
       >
-        Systems in Production
+        Featured Builds
       </h2>
+      <p className="mb-12 text-body-lg text-text-secondary">
+        Projects that represent how I think and build
+      </p>
 
       <div className="projects-grid grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((project, index) => (
@@ -89,6 +95,10 @@ export function SelectedWork() {
                 {project.status}
               </Badge>
             </div>
+
+            <p className="mb-2 text-body-sm font-medium text-plasma">
+              {project.highlight}
+            </p>
 
             <p className="mb-4 text-body-md text-text-secondary">
               {project.description}
@@ -108,7 +118,11 @@ export function SelectedWork() {
         ))}
       </div>
 
-      <div className="mt-8 text-center">
+      <p className="mt-8 text-center text-body-lg text-text-secondary">
+        More builds coming soon...
+      </p>
+
+      <div className="mt-4 text-center">
         <a
           href="https://github.com/JRodAmazing"
           target="_blank"
