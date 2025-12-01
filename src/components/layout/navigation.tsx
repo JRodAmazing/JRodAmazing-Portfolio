@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils/cn';
 import { Button } from '@/components/ui/button';
+import { ThemeToggle } from '@/components/ui/theme-toggle';
 
 const navLinks = [
   { href: '#work', label: 'Work' },
@@ -56,8 +57,9 @@ export function Navigation() {
             ))}
           </div>
 
-          {/* CTA + Mobile Toggle */}
+          {/* CTA + Theme Toggle + Mobile Toggle */}
           <div className="flex items-center gap-4">
+            <ThemeToggle />
             <Button variant="cta" size="sm" className="hidden sm:inline-flex">
               <a href="#contact">Let&apos;s Talk</a>
             </Button>

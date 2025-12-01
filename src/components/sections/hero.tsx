@@ -65,58 +65,60 @@ export function Hero() {
             <span className="text-gradient">&quot;JRod&quot;</span> Roden
           </h1>
           <p className="mt-4 font-display text-display-sm font-semibold text-plasma md:text-display-md">
-            AI Solutions Engineer
+            AI Solutions Architect | Production ML Engineer
           </p>
           <p className="mt-2 text-body-lg text-text-secondary md:text-body-xl">
-            Heavy Equipment &amp; Construction Veteran • Former Rocket Test Engineer
+            Industrial AI Specialist • Aerospace Systems Engineer • Self-Taught Coder
           </p>
         </div>
 
         {/* Value Snapshot */}
         <div ref={valueRef} className="mb-10 max-w-4xl">
           <p className="mb-8 text-body-lg text-text-secondary md:text-body-xl">
-            I design and ship AI-driven solutions that connect real-world machinery,
-            field operations, and enterprise workflows to modern software.
+            I build production AI systems that work in the real world—not just in notebooks.
+            17+ years in aerospace and heavy equipment taught me that systems can&apos;t just work,
+            they must work <span className="font-semibold text-text-primary">perfectly</span>.
+            I bring that mindset to AI engineering.
           </p>
 
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="value-item rounded-xl border border-steel bg-tungsten/50 p-4">
               <div className="mb-2 flex items-center gap-2">
                 <span className="text-plasma">⚡</span>
-                <span className="font-display text-body-md font-semibold text-text-primary">10+ Years Experience</span>
+                <span className="font-display text-body-md font-semibold text-text-primary">17+ Years Experience</span>
               </div>
               <p className="text-body-sm text-text-secondary">
-                Leading heavy equipment diagnostics, fleet operations, and field service
+                Aerospace test operations, $485M+ industrial portfolios, mission-critical systems
               </p>
             </div>
 
             <div className="value-item rounded-xl border border-steel bg-tungsten/50 p-4">
               <div className="mb-2 flex items-center gap-2">
                 <span className="text-thrust">🚀</span>
-                <span className="font-display text-body-md font-semibold text-text-primary">Rocket Operations</span>
+                <span className="font-display text-body-md font-semibold text-text-primary">Production AI Systems</span>
               </div>
               <p className="text-body-sm text-text-secondary">
-                Hands-on rocket engine test and launch operations experience
+                LLMs, RAG pipelines, predictive ML, computer vision—all shipping in production
               </p>
             </div>
 
             <div className="value-item rounded-xl border border-steel bg-tungsten/50 p-4">
               <div className="mb-2 flex items-center gap-2">
                 <span className="text-ion">🤖</span>
-                <span className="font-display text-body-md font-semibold text-text-primary">AI Builder</span>
+                <span className="font-display text-body-md font-semibold text-text-primary">Industrial AI Specialist</span>
               </div>
               <p className="text-body-sm text-text-secondary">
-                Building AI copilots, estimators, and dashboards that turn messy ops data into decisions
+                Fleet optimization, predictive maintenance, equipment diagnostics with ML + IoT
               </p>
             </div>
 
             <div className="value-item rounded-xl border border-steel bg-tungsten/50 p-4">
               <div className="mb-2 flex items-center gap-2">
                 <span className="text-nebula">🔄</span>
-                <span className="font-display text-body-md font-semibold text-text-primary">End-to-End Thinker</span>
+                <span className="font-display text-body-md font-semibold text-text-primary">Full-Stack AI Engineer</span>
               </div>
               <p className="text-body-sm text-text-secondary">
-                Discovery → Architecture → Build → Integration → Rollout
+                Python/PyTorch → APIs → React/Next.js → Cloud → MLOps pipelines
               </p>
             </div>
           </div>
@@ -126,6 +128,20 @@ export function Hero() {
         <div ref={ctaRef} className="flex flex-col items-start gap-4 sm:flex-row">
           <Button variant="cta" size="lg">
             <a href="#work">View Featured Builds</a>
+          </Button>
+          <Button
+            variant="outline"
+            size="lg"
+            onClick={() => {
+              const link = document.createElement('a');
+              link.href = '/Justin_Roden_Resume.pdf';
+              link.download = 'Justin_Roden_Resume.pdf';
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+            }}
+          >
+            📄 Download Resume
           </Button>
           <Button variant="secondary" size="lg">
             <a href="#contact">Get in Touch</a>

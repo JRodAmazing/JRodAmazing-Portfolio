@@ -10,25 +10,44 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
-    title: 'FleetPulse',
-    description: 'Diagnostic and KPI tracking dashboard integrating CAN data (J1939) with budget metrics for heavy equipment fleet management',
-    tech: ['React', 'Node.js', 'PostgreSQL', 'Python'],
+    title: 'Estimator AI v5',
+    description: 'AI-powered Discord bot for construction automation. Handles truss design, floor estimation, and structural workflows with intelligent design automation.',
+    tech: ['Node.js', 'Discord.js', 'OpenAI', 'JavaScript'],
     status: 'live',
-    highlight: 'Real-time equipment diagnostics',
+    highlight: 'Construction AI automation',
+    github: 'https://github.com/JRodAmazing/Estimator-AI-v5',
   },
   {
-    title: 'Estimator AI',
-    description: 'AI-powered construction estimation tool that analyzes project specs and generates accurate cost breakdowns using historical data',
-    tech: ['Next.js', 'OpenAI', 'Python', 'PostgreSQL'],
+    title: 'HeavyOps',
+    description: 'Heavy equipment operations management system built with Python for tracking maintenance, diagnostics, and fleet operations.',
+    tech: ['Python', 'Flask', 'SQLite'],
     status: 'live',
-    highlight: 'Turns specs into estimates',
+    highlight: 'Fleet operations platform',
+    github: 'https://github.com/JRodAmazing/HeavyOps',
   },
   {
-    title: 'Apex Recruiter Bot',
-    description: 'Intelligent recruiting chatbot that screens candidates, schedules interviews, and integrates with ATS systems',
-    tech: ['TypeScript', 'Anthropic', 'Node.js', 'Vercel'],
+    title: 'CoreFlow',
+    description: 'Full-stack workflow management application with C# backend and TypeScript frontend for industrial operations tracking.',
+    tech: ['C#', '.NET', 'TypeScript', 'React'],
     status: 'live',
-    highlight: 'Automated candidate screening',
+    highlight: 'Industrial workflow system',
+    github: 'https://github.com/JRodAmazing/coreflow-backend',
+  },
+  {
+    title: 'Contract Analyzer',
+    description: 'AI-powered tool for analyzing construction contracts, extracting key terms, and identifying potential issues automatically.',
+    tech: ['JavaScript', 'Node.js', 'OpenAI'],
+    status: 'live',
+    highlight: 'Smart contract analysis',
+    github: 'https://github.com/JRodAmazing/contract-analyzer',
+  },
+  {
+    title: 'BrainSpan',
+    description: 'Productivity app combining Kanban boards with Eat the Frog methodology to help prioritize and tackle the most important tasks first.',
+    tech: ['React', 'TypeScript', 'Tailwind'],
+    status: 'live',
+    highlight: 'Smart task prioritization',
+    github: 'https://github.com/JRodAmazing/BrainSpan',
   },
 ];
 
@@ -39,7 +58,14 @@ export function SelectedWork() {
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    if (prefersReducedMotion) return;
+    if (prefersReducedMotion) {
+      // Ensure cards are visible if animations are disabled
+      const cards = document.querySelectorAll('.project-card');
+      cards.forEach((card) => {
+        (card as HTMLElement).style.opacity = '1';
+      });
+      return;
+    }
 
     const ctx = gsap.context(() => {
       gsap.from(titleRef.current, {
@@ -53,17 +79,24 @@ export function SelectedWork() {
         },
       });
 
-      gsap.from('.project-card', {
-        y: 80,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: 'power4.out',
-        scrollTrigger: {
-          trigger: '.projects-grid',
-          start: 'top 75%',
+      gsap.fromTo('.project-card',
+        {
+          y: 80,
+          opacity: 0,
         },
-      });
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: 'power4.out',
+          scrollTrigger: {
+            trigger: '.projects-grid',
+            start: 'top 85%',
+            toggleActions: 'play none none none',
+          },
+        }
+      );
     }, sectionRef);
 
     return () => ctx.revert();
@@ -83,14 +116,34 @@ export function SelectedWork() {
 
       <div className="projects-grid grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {projects.map((project, index) => (
-          <article
+          <a
             key={index}
-            className="project-card group rounded-2xl border border-steel bg-tungsten p-6 transition-all duration-500 ease-thrust hover:border-plasma/50 hover:shadow-glow-plasma/10"
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="project-card group relative block rounded-2xl border border-steel bg-tungsten p-6 transition-all duration-500 ease-thrust hover:border-plasma/50 hover:shadow-glow-plasma/10"
           >
             <div className="mb-4 flex items-center justify-between">
-              <h3 className="font-display text-body-xl font-semibold text-text-primary transition-colors group-hover:text-plasma">
-                {project.title}
-              </h3>
+              <div className="flex items-center gap-3">
+                <div className="project-card-icon">
+                  <svg
+                    className="h-6 w-6 text-plasma"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 10V3L4 14h7v7l9-11h-7z"
+                    />
+                  </svg>
+                </div>
+                <h3 className="font-display text-body-xl font-semibold text-text-primary transition-colors group-hover:text-plasma">
+                  {project.title}
+                </h3>
+              </div>
               <Badge variant={project.status === 'live' ? 'success' : 'warning'}>
                 {project.status}
               </Badge>
@@ -114,7 +167,7 @@ export function SelectedWork() {
                 </span>
               ))}
             </div>
-          </article>
+          </a>
         ))}
       </div>
 

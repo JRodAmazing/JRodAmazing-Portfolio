@@ -24,6 +24,17 @@ const SUGGESTED_QUESTIONS = [
   "What makes you different?",
 ];
 
+const QUICK_ACTIONS = [
+  {
+    label: "📄 Get Resume",
+    action: "download_resume"
+  },
+  {
+    label: "💼 View Portfolio",
+    action: "view_portfolio"
+  },
+];
+
 export function ChatPanel({ isOpen, onClose }: ChatPanelProps) {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const [messages, setMessages] = useState<Message[]>([
@@ -135,6 +146,38 @@ export function ChatPanel({ isOpen, onClose }: ChatPanelProps) {
     setInput(question);
   };
 
+  const handleQuickAction = (action: string) => {
+    if (action === 'download_resume') {
+      // Download resume
+      const link = document.createElement('a');
+      link.href = '/Justin_Roden_Resume.pdf';
+      link.download = 'Justin_Roden_Resume.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      // Add confirmation message
+      setMessages(prev => [
+        ...prev,
+        {
+          id: Date.now().toString(),
+          role: 'assistant',
+          content: "📄 Resume downloaded! You now have Justin's complete AI specialist resume. Feel free to ask me anything about his experience or projects."
+        }
+      ]);
+    } else if (action === 'view_portfolio') {
+      window.open('https://github.com/JRodAmazing', '_blank');
+      setMessages(prev => [
+        ...prev,
+        {
+          id: Date.now().toString(),
+          role: 'assistant',
+          content: "💼 Opening GitHub portfolio in a new tab. Check out HeavyOps, Estimator AI, and other production systems!"
+        }
+      ]);
+    }
+  };
+
   if (!isOpen) return null;
 
   return (
@@ -197,21 +240,41 @@ export function ChatPanel({ isOpen, onClose }: ChatPanelProps) {
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Suggested questions (show only at start) */}
-          {messages.length <= 1 && (
-            <div className="mt-4 space-y-2">
-              <p className="text-xs text-text-tertiary">Suggested questions:</p>
-              <div className="flex flex-wrap gap-2">
-                {SUGGESTED_QUESTIONS.map((question) => (
-                  <button
-                    key={question}
-                    onClick={() => handleSuggestionClick(question)}
-                    className="rounded-lg bg-steel px-3 py-1.5 text-xs text-text-secondary transition-colors hover:bg-plasma/20 hover:text-text-primary"
-                  >
-                    {question}
-                  </button>
-                ))}
+          {/* Quick Actions (show always) */}
+          {messages.length <= 3 && (
+            <div className="mt-4 space-y-3">
+              <div className="space-y-2">
+                <p className="text-xs font-medium text-text-tertiary">Quick Actions:</p>
+                <div className="flex flex-wrap gap-2">
+                  {QUICK_ACTIONS.map((action) => (
+                    <button
+                      key={action.action}
+                      onClick={() => handleQuickAction(action.action)}
+                      className="rounded-lg border border-plasma bg-plasma/10 px-4 py-2 text-sm font-medium text-plasma transition-all hover:bg-plasma/20 hover:shadow-glow-plasma/20"
+                    >
+                      {action.label}
+                    </button>
+                  ))}
+                </div>
               </div>
+
+              {/* Suggested questions (show only at start) */}
+              {messages.length <= 1 && (
+                <div className="space-y-2">
+                  <p className="text-xs text-text-tertiary">Or ask me:</p>
+                  <div className="flex flex-wrap gap-2">
+                    {SUGGESTED_QUESTIONS.map((question) => (
+                      <button
+                        key={question}
+                        onClick={() => handleSuggestionClick(question)}
+                        className="rounded-lg bg-steel px-3 py-1.5 text-xs text-text-secondary transition-colors hover:bg-plasma/20 hover:text-text-primary"
+                      >
+                        {question}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </div>

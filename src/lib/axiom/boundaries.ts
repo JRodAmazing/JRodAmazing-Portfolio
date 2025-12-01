@@ -286,6 +286,10 @@ export function getFallbackResponse(query: string): string {
     return "Best ways to reach Justin: Email jcroden25@gmail.com or text 817-201-6487 (he prefers text so he can respond when available). LinkedIn: linkedin.com/in/jrodamazing1. GitHub: github.com/JRodAmazing. For calls, weekday evenings or Sundays 9-11am work best.";
   }
 
+  if (lowerQuery.includes('resume') || lowerQuery.includes('cv') || lowerQuery.includes('download') || lowerQuery.includes('pdf')) {
+    return "📄 I can give you Justin's resume right now! Use the '📄 Get Resume' button above, or I can walk you through his experience in detail. What would you prefer?";
+  }
+
   if (lowerQuery.includes('education') || lowerQuery.includes('degree') || lowerQuery.includes('mba') || lowerQuery.includes('school')) {
     return "MBA from Baylor University (2023)—focused on M&A, Construction Finance, and Systems Integration. Chose that focus because he saw the industry needed people who understood both the business side and the technical implementation. BBA from University of Wyoming in Business Administration and Operations Management before that.";
   }

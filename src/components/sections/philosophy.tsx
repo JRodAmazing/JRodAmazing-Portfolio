@@ -44,14 +44,24 @@ export function Philosophy() {
           className="border-l-4 border-plasma pl-6 text-left"
         >
           <p className="font-display text-display-sm font-semibold text-text-primary md:text-display-md">
-            &ldquo;Rockets don&apos;t accept technical debt. Neither do I.&rdquo;
+            &ldquo;I&apos;m the engineer you call when AI needs to work in the real world—not in a notebook.&rdquo;
           </p>
         </blockquote>
 
-        <p className="mt-8 text-body-lg text-text-secondary">
-          17 years in aerospace and construction taught me that systems fail at their integrations.
-          I bring that same rigor to software—obsessing over how pieces connect,
-          where failures propagate, and what actually ships.
+        <p className="mt-8 text-body-lg text-text-secondary text-left">
+          17 years building systems that <span className="font-semibold text-text-primary">can&apos;t fail</span>:
+          aerospace test operations, $485M+ industrial portfolios, mission-critical software running 24/7 in harsh environments.
+        </p>
+
+        <p className="mt-4 text-body-lg text-text-secondary text-left">
+          Most AI engineers have never stood in a muddy field at 2am troubleshooting million-dollar equipment.
+          Most operations people can&apos;t write production code. <span className="font-semibold text-text-primary">I&apos;ve done both</span>.
+        </p>
+
+        <p className="mt-4 text-body-lg text-text-secondary text-left">
+          I taught myself to code <span className="font-semibold text-text-primary">in the dark</span>—late nights,
+          Stack Overflow, broken code—because the tools I needed didn&apos;t exist yet. That&apos;s why I understand
+          both the business problem <span className="italic">and</span> the technical solution.
         </p>
       </div>
     </Section>

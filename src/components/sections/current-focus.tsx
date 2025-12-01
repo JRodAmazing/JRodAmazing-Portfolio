@@ -42,57 +42,57 @@ export function CurrentFocus() {
         {/* Role */}
         <div className="focus-item rounded-xl border border-steel bg-tungsten p-6">
           <h3 className="mb-3 font-display text-body-lg font-semibold text-plasma">
-            Role
+            Open To
           </h3>
           <p className="text-body-md text-text-primary">
-            AI Solutions Engineer
+            AI Engineer (W2)
           </p>
           <p className="mt-2 text-body-sm text-text-secondary">
-            Pre/Post-Sales, Solution Design, Integration
+            Contract Projects, Advisory, Full-Time Roles
           </p>
         </div>
 
         {/* Domains */}
         <div className="focus-item rounded-xl border border-steel bg-tungsten p-6">
           <h3 className="mb-3 font-display text-body-lg font-semibold text-thrust">
-            Domains
+            Specialties
           </h3>
           <ul className="space-y-1 text-body-sm text-text-secondary">
-            <li>Construction & Heavy Equipment</li>
-            <li>Mining</li>
-            <li>Aerospace</li>
-            <li>B2B SaaS</li>
+            <li>Production ML/AI Systems</li>
+            <li>Industrial IoT + AI</li>
+            <li>LLMs & RAG Pipelines</li>
+            <li>Fleet Automation</li>
           </ul>
         </div>
 
         {/* Strengths */}
         <div className="focus-item rounded-xl border border-steel bg-tungsten p-6 md:col-span-2">
           <h3 className="mb-3 font-display text-body-lg font-semibold text-ion">
-            Strengths
+            What Sets Me Apart
           </h3>
           <ul className="space-y-2 text-body-sm text-text-secondary">
             <li className="flex items-start gap-2">
               <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-ion" />
-              Translating non-technical requirements into clear AI/software architectures
+              I speak fluent business AND write production code—most engineers do one or the other
             </li>
             <li className="flex items-start gap-2">
               <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-ion" />
-              Designing chatbots, RAG systems, and automations around real business workflows
+              Built systems that run in -40°F mines and 130°F deserts—I understand harsh environments
             </li>
             <li className="flex items-start gap-2">
               <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-ion" />
-              Working with stakeholders, sales, and engineering to get from idea → working demo → production
+              Aerospace background means I think in systems, not features—everything connects
             </li>
             <li className="flex items-start gap-2">
               <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-ion" />
-              Documenting solutions so anyone on the team can understand, maintain, and extend the build
+              I ship production AI (HeavyOps, FleetPulse live now), not slide decks
             </li>
           </ul>
         </div>
       </div>
 
       <p className="focus-item mt-8 text-body-lg text-text-secondary">
-        I use this portfolio to <span className="text-text-primary font-medium">show, not tell</span> what that looks like in practice.
+        Most AI engineers build models. I build <span className="text-text-primary font-medium">production systems</span> that integrate with ERPs, process telematics, and survive in industrial environments.
       </p>
     </Section>
   );

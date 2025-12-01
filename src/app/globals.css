@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* Colors */
+  /* Colors - Dark Mode (Default) */
   --color-void: #0A0A0F;
   --color-plasma: #6366F1;
   --color-thrust: #F43F5E;
@@ -10,10 +10,13 @@
   --color-tungsten: #18181B;
   --color-steel: #27272A;
 
-  /* Text colors */
+  /* Text colors - Dark Mode */
   --color-text-primary: #FAFAFA;
   --color-text-secondary: #A1A1AA;
   --color-text-tertiary: #71717A;
+
+  /* Theme toggle cord */
+  --cord: #71717A;
 
   /* Fonts */
   --font-display: var(--font-space-grotesk), sans-serif;
@@ -66,6 +69,18 @@ body {
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Light Mode Theme */
+[data-theme='light'] {
+  --color-void: #F9FAFB;
+  --color-tungsten: #FFFFFF;
+  --color-steel: #E5E7EB;
+  --color-text-primary: #111827;
+  --color-text-secondary: #6B7280;
+  --color-text-tertiary: #9CA3AF;
+  --cord: #6B7280;
 }
 
 ::selection {
@@ -120,4 +135,46 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+/* Social Icon Transitions */
+.social-icon-1 svg,
+.social-icon-2 svg,
+.social-icon-3 svg,
+.social-icon-c svg {
+  opacity: 0;
+  transition-duration: 0.5s;
+  transition-delay: 0.2s;
+}
+
+.social-icon-1-1 {
+  transition-duration: 0.4s;
+  background-color: rgb(0, 0, 0, 0);
+}
+
+/* Light/Dark Mode Toggle Scene */
+.toggle-scene {
+  overflow: visible !important;
+  height: 50vmin;
+  position: absolute;
+}
+
+.toggle-scene_cord {
+  stroke: var(--cord);
+  cursor: move;
+}
+
+/* Project Card Transitions */
+.project-card {
+  opacity: 1 !important;
+}
+
+.project-card-icon svg {
+  opacity: 0;
+  transition: opacity 0.5s ease 0.2s, transform 0.4s ease;
+}
+
+.project-card:hover .project-card-icon svg {
+  opacity: 1;
+  transform: scale(1.1);
 }
