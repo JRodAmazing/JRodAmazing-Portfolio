@@ -130,7 +130,7 @@ export function Hero() {
             <a href="#work">View Featured Builds</a>
           </Button>
           <Button
-            variant="outline"
+            variant="secondary"
             size="lg"
             onClick={() => {
               const link = document.createElement('a');
