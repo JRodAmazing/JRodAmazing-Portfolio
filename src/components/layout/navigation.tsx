@@ -9,6 +9,8 @@ import { ThemeToggle } from '@/components/ui/theme-toggle';
 const navLinks = [
   { href: '#work', label: 'Work' },
   { href: '#about', label: 'About' },
+  { href: '/mission-control', label: 'Mission Control', isRoute: true },
+  { href: '/game', label: 'Play Game', isRoute: true },
   { href: '#contact', label: 'Contact' },
 ];
 
@@ -46,15 +48,27 @@ export function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden items-center gap-8 md:flex">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="font-body text-body-sm text-text-secondary transition-colors hover:text-text-primary"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const linkContent = (
+                <span className="font-body text-body-sm text-text-secondary transition-colors hover:text-text-primary">
+                  {link.label}
+                </span>
+              );
+
+              return link.isRoute ? (
+                <Link key={link.href} href={link.href} className="font-body text-body-sm text-text-secondary transition-colors hover:text-text-primary">
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="font-body text-body-sm text-text-secondary transition-colors hover:text-text-primary"
+                >
+                  {link.label}
+                </a>
+              );
+            })}
           </div>
 
           {/* CTA + Theme Toggle + Mobile Toggle */}
@@ -100,16 +114,27 @@ export function Navigation() {
         <div className="border-b border-steel bg-void/95 backdrop-blur-lg md:hidden">
           <div className="container-custom">
             <div className="flex flex-col gap-4 py-6">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block py-2 font-display text-body-lg text-text-secondary"
-                >
-                  {link.label}
-                </a>
-              ))}
+              {navLinks.map((link) =>
+                link.isRoute ? (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block py-2 font-display text-body-lg text-text-secondary"
+                  >
+                    {link.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block py-2 font-display text-body-lg text-text-secondary"
+                  >
+                    {link.label}
+                  </a>
+                )
+              )}
               <div className="pt-4">
                 <Button variant="cta" size="lg" className="w-full">
                   <a href="#contact">Let&apos;s Talk</a>

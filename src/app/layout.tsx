@@ -3,6 +3,7 @@ import { Space_Grotesk, Inter, JetBrains_Mono } from 'next/font/google';
 import { Navigation } from '@/components/layout/navigation';
 import { Footer } from '@/components/layout/footer';
 import { AxiomTrigger } from '@/components/axiom/axiom-trigger';
+import { LoadingProvider } from '@/components/providers/loading-provider';
 import './globals.css';
 
 const spaceGrotesk = Space_Grotesk({
@@ -53,10 +54,12 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable}`}
     >
       <body className="bg-void text-text-primary antialiased">
-        <Navigation />
-        <main>{children}</main>
-        <Footer />
-        <AxiomTrigger />
+        <LoadingProvider>
+          <Navigation />
+          <main>{children}</main>
+          <Footer />
+          <AxiomTrigger />
+        </LoadingProvider>
       </body>
     </html>
   );
