@@ -1,4 +1,4 @@
-# Justin "JRod" Roden - AI Solutions Architect Portfolio
+# Justin "JRod" Roden - AI Solutions Engineer Portfolio
 
 > **Production AI systems that work in the real world—not just in notebooks.**
 
