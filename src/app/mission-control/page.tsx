@@ -12,6 +12,7 @@ interface Project {
   progress: number;
   techStack: string[];
   lastUpdate: string;
+  gridImage?: string;
 }
 
 interface LearningItem {
@@ -36,7 +37,8 @@ const ACTIVE_PROJECTS: Project[] = [
     status: 'active',
     progress: 45,
     techStack: ['Python', 'FastAPI', 'React', 'OpenAI', 'Vector DB'],
-    lastUpdate: 'Today'
+    lastUpdate: 'Today',
+    gridImage: '/grids/dreamtrip-grid.svg'
   },
   {
     id: 'fleetpulse',
@@ -45,7 +47,8 @@ const ACTIVE_PROJECTS: Project[] = [
     status: 'active',
     progress: 85,
     techStack: ['Python', 'FastAPI', 'PyTorch', 'PostgreSQL'],
-    lastUpdate: '2 days ago'
+    lastUpdate: '2 days ago',
+    gridImage: '/grids/fleetpulse-grid.svg'
   },
   {
     id: 'techtranslate',
@@ -54,7 +57,8 @@ const ACTIVE_PROJECTS: Project[] = [
     status: 'active',
     progress: 70,
     techStack: ['Next.js', 'OpenAI', 'Pinecone', 'TypeScript'],
-    lastUpdate: '1 week ago'
+    lastUpdate: '1 week ago',
+    gridImage: '/grids/techtranslate-grid.svg'
   },
   {
     id: 'portfolio',
@@ -63,7 +67,8 @@ const ACTIVE_PROJECTS: Project[] = [
     status: 'active',
     progress: 95,
     techStack: ['Next.js', 'GSAP', 'Tailwind', 'TypeScript'],
-    lastUpdate: 'Today'
+    lastUpdate: 'Today',
+    gridImage: '/grids/portfolio-grid.svg'
   }
 ];
 
@@ -185,47 +190,67 @@ export default function MissionControlPage() {
               </h2>
               <div className="space-y-4">
                 {ACTIVE_PROJECTS.map((project) => (
-                  <div key={project.id} className="bg-tungsten/30 border border-steel rounded-xl p-6">
-                    <div className="flex items-start justify-between mb-4">
-                      <div>
-                        <div className="flex items-center gap-3 mb-2">
-                          <h3 className="font-display text-body-lg font-bold text-text-primary">
-                            {project.name}
-                          </h3>
-                          <span className={`px-2 py-1 rounded text-xs font-bold ${statusColors[project.status]} text-white`}>
-                            {project.status.toUpperCase()}
+                  <div key={project.id} className="group relative h-[280px]" style={{ perspective: '1000px' }}>
+                    <div className="relative h-full w-full transition-transform duration-700 ease-in-out group-hover:[transform:rotateY(180deg)]" style={{ transformStyle: 'preserve-3d' }}>
+                      {/* Front of card */}
+                      <div className="absolute inset-0 bg-tungsten/30 border border-steel rounded-xl p-6" style={{ backfaceVisibility: 'hidden' }}>
+                        <div className="flex items-start justify-between mb-4">
+                          <div>
+                            <div className="flex items-center gap-3 mb-2">
+                              <h3 className="font-display text-body-lg font-bold text-text-primary">
+                                {project.name}
+                              </h3>
+                              <span className={`px-2 py-1 rounded text-xs font-bold ${statusColors[project.status]} text-white`}>
+                                {project.status.toUpperCase()}
+                              </span>
+                            </div>
+                            <p className="text-body-sm text-text-secondary mb-3">
+                              {project.description}
+                            </p>
+                          </div>
+                        </div>
+
+                        <div className="mb-4">
+                          <div className="flex items-center justify-between mb-2">
+                            <span className="text-body-xs text-text-tertiary">Progress</span>
+                            <span className="text-body-xs font-bold text-plasma">{project.progress}%</span>
+                          </div>
+                          <div className="w-full bg-steel rounded-full h-2">
+                            <div
+                              className="bg-gradient-to-r from-plasma to-thrust h-2 rounded-full transition-all duration-500"
+                              style={{ width: `${project.progress}%` }}
+                            ></div>
+                          </div>
+                        </div>
+
+                        <div className="flex items-center justify-between">
+                          <div className="flex flex-wrap gap-2">
+                            {project.techStack.map((tech) => (
+                              <span key={tech} className="px-2 py-1 bg-void/50 border border-steel rounded text-xs text-text-secondary">
+                                {tech}
+                              </span>
+                            ))}
+                          </div>
+                          <span className="text-body-xs text-text-tertiary">
+                            Updated {project.lastUpdate}
                           </span>
                         </div>
-                        <p className="text-body-sm text-text-secondary mb-3">
-                          {project.description}
-                        </p>
-                      </div>
-                    </div>
 
-                    <div className="mb-4">
-                      <div className="flex items-center justify-between mb-2">
-                        <span className="text-body-xs text-text-tertiary">Progress</span>
-                        <span className="text-body-xs font-bold text-plasma">{project.progress}%</span>
+                        <div className="absolute bottom-4 right-4 text-body-xs text-ion">
+                          Hover for architecture →
+                        </div>
                       </div>
-                      <div className="w-full bg-steel rounded-full h-2">
-                        <div
-                          className="bg-gradient-to-r from-plasma to-thrust h-2 rounded-full transition-all duration-500"
-                          style={{ width: `${project.progress}%` }}
-                        ></div>
-                      </div>
-                    </div>
 
-                    <div className="flex items-center justify-between">
-                      <div className="flex flex-wrap gap-2">
-                        {project.techStack.map((tech) => (
-                          <span key={tech} className="px-2 py-1 bg-void/50 border border-steel rounded text-xs text-text-secondary">
-                            {tech}
-                          </span>
-                        ))}
+                      {/* Back of card - Architecture Grid */}
+                      <div className="absolute inset-0 bg-void border-2 border-plasma rounded-xl p-6 flex items-center justify-center" style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)' }}>
+                        {project.gridImage && (
+                          <img
+                            src={project.gridImage}
+                            alt={`${project.name} Architecture`}
+                            className="w-full h-full object-contain"
+                          />
+                        )}
                       </div>
-                      <span className="text-body-xs text-text-tertiary">
-                        Updated {project.lastUpdate}
-                      </span>
                     </div>
                   </div>
                 ))}

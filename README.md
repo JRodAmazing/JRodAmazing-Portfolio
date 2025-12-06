@@ -22,19 +22,37 @@ This is the professional portfolio of **Justin "JRod" Roden**, an AI Solutions A
 
 ## Key Features
 
-### Interactive AXIOM AI Chatbot
+### 🎨 Architectural Blueprint Background
+- Full-screen technical architecture diagram as background
+- Visible grid patterns showing ML pipelines, API gateways, data layers, and microservices
+- Semi-transparent content overlay allowing blueprint to shine through
+- Emphasizes solutions architecture mindset throughout the entire site
+
+### 🔄 Expert-Level Page Transitions
+- Smooth loading screens when navigating between pages
+- Animated spinner with lightning bolt icon
+- Progress bar and page name display
+- 800ms transition for premium feel
+
+### 🎴 3D Flip Card Animations
+- **Featured Builds** - Project cards flip to reveal detailed case studies (Problem → Solution → Impact)
+- **Mission Control** - Project cards flip to show complete architecture diagrams
+- Perspective-based 3D transforms for depth
+- 700ms smooth rotation on hover
+
+### 💬 Interactive AXIOM AI Chatbot
 - Real-time AI assistant powered by OpenAI GPT-4
 - Streaming responses with Vercel AI SDK
 - Context-aware conversations about projects, experience, and availability
 - Smart boundaries to keep conversations professional and relevant
 
-### Premium Animations
+### ⚡ Premium Animations
 - GSAP-powered scroll-triggered animations
 - Smooth entrance sequences with stagger effects
 - Custom easing functions for professional motion design
 - Accessibility-friendly with prefers-reduced-motion support
 
-### Light/Dark Theme Toggle
+### 🌓 Light/Dark Theme Toggle
 - Interactive bulb toggle with pull cord animation
 - Smooth theme transitions across all components
 - Persistent theme selection via localStorage
@@ -110,6 +128,8 @@ JRodAmazing-Portfolio/
 ├── src/
 │   ├── app/                    # Next.js App Router
 │   │   ├── api/               # API routes (chatbot endpoint)
+│   │   ├── mission-control/   # Mission Control page
+│   │   ├── game/              # Recruiter game
 │   │   ├── globals.css        # Global styles & theme variables
 │   │   ├── layout.tsx         # Root layout with font configuration
 │   │   └── page.tsx           # Home page
@@ -131,15 +151,24 @@ JRodAmazing-Portfolio/
 │   │   └── ui/                # Reusable UI components
 │   │       ├── button.tsx
 │   │       ├── section.tsx
+│   │       ├── badge.tsx
+│   │       ├── page-transition.tsx
 │   │       └── theme-toggle.tsx
 │   └── lib/
 │       └── axiom/             # AXIOM chatbot logic
 │           ├── system-prompt.ts
 │           └── boundaries.ts
 ├── public/
+│   ├── grids/                 # Architecture grid diagrams
+│   │   ├── dreamtrip-grid.svg
+│   │   ├── fleetpulse-grid.svg
+│   │   ├── techtranslate-grid.svg
+│   │   └── portfolio-grid.svg
+│   ├── architecture-blueprint.svg  # Main background blueprint
+│   ├── dreamtrip-architecture.svg  # Dream_Trip system architecture
+│   ├── dreamtrip-flowchart.svg     # Dream_Trip user flow
 │   ├── Justin_Roden_Resume.pdf
-│   ├── Justin_Roden_AI_Specialist_Resume.md
-│   └── portfolio-demo.mp4
+│   └── Justin_Roden_AI_Specialist_Resume.md
 └── package.json
 ```
 

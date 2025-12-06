@@ -4,6 +4,7 @@ import { Navigation } from '@/components/layout/navigation';
 import { Footer } from '@/components/layout/footer';
 import { AxiomTrigger } from '@/components/axiom/axiom-trigger';
 import { LoadingProvider } from '@/components/providers/loading-provider';
+import { PageTransition } from '@/components/ui/page-transition';
 import './globals.css';
 
 const spaceGrotesk = Space_Grotesk({
@@ -25,12 +26,12 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Justin Roden | Solutions Engineer',
-  description: 'Systems Architect: From Launch Pads to Launch Days. 17+ years bridging aerospace, construction, and software engineering.',
+  title: 'Justin Roden | AI Solutions Architect',
+  description: 'AI Solutions Architect & Engineering Lead. 17+ years building production AI systems from aerospace to industrial applications.',
   metadataBase: new URL('https://justinroden.dev'),
   openGraph: {
-    title: 'Justin Roden | Solutions Engineer',
-    description: 'Systems Architect: From Launch Pads to Launch Days',
+    title: 'Justin Roden | AI Solutions Architect',
+    description: 'AI Solutions Architect & Engineering Lead',
     url: 'https://justinroden.dev',
     siteName: 'Justin Roden',
     locale: 'en_US',
@@ -38,8 +39,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Justin Roden | Solutions Engineer',
-    description: 'Systems Architect: From Launch Pads to Launch Days',
+    title: 'Justin Roden | AI Solutions Architect',
+    description: 'AI Solutions Architect & Engineering Lead',
   },
 };
 
@@ -56,7 +57,9 @@ export default function RootLayout({
       <body className="bg-void text-text-primary antialiased">
         <LoadingProvider>
           <Navigation />
-          <main>{children}</main>
+          <PageTransition>
+            <main>{children}</main>
+          </PageTransition>
           <Footer />
           <AxiomTrigger />
         </LoadingProvider>

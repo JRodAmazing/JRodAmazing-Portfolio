@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <!-- Background -->
+  <rect width="400" height="300" fill="#0A0A0F"/>
+
+  <!-- Grid -->
+  <defs>
+    <pattern id="grid-fp" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(244, 63, 94, 0.15)" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="300" fill="url(#grid-fp)"/>
+
+  <!-- Title -->
+  <text x="200" y="25" fill="#F43F5E" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle">FLEETPULSE AI ARCHITECTURE</text>
+
+  <!-- IoT Data Ingestion -->
+  <rect x="20" y="50" width="90" height="55" fill="none" stroke="#F43F5E" stroke-width="1.5" rx="4"/>
+  <text x="65" y="70" fill="#F43F5E" font-family="monospace" font-size="9" text-anchor="middle">IoT Ingestion</text>
+  <text x="65" y="85" fill="#A1A1AA" font-family="monospace" font-size="7" text-anchor="middle">Telematics</text>
+  <text x="65" y="97" fill="#A1A1AA" font-family="monospace" font-size="7" text-anchor="middle">Sensors</text>
+
+  <!-- ML Pipeline -->
+  <rect x="130" y="50" width="90" height="55" fill="none" stroke="#A855F7" stroke-width="1.5" rx="4"/>
+  <text x="175" y="70" fill="#A855F7" font-family="monospace" font-size="9" text-anchor="middle">ML Pipeline</text>
+  <text x="175" y="85" fill="#A1A1AA" font-family="monospace" font-size="7" text-anchor="middle">PyTorch</text>
+  <text x="175" y="97" fill="#A1A1AA" font-family="monospace" font-size="7" text-anchor="middle">Predictive</text>
+
+  <!-- API Layer -->
+  <rect x="240" y="50" width="70" height="55" fill="none" stroke="#22D3EE" stroke-width="1.5" rx="4"/>
+  <text x="275" y="70" fill="#22D3EE" font-family="monospace" font-size="9" text-anchor="middle">API</text>
+  <text x="275" y="85" fill="#A1A1AA" font-family="monospace" font-size="7" text-anchor="middle">FastAPI</text>
+  <text x="275" y="97" fill="#A1A1AA" font-family="monospace" font-size="7" text-anchor="middle">REST</text>
+
+  <!-- Dashboard -->
+  <rect x="330" y="50" width="50" height="55" fill="none" stroke="#6366F1" stroke-width="1.5" rx="4"/>
+  <text x="355" y="70" fill="#6366F1" font-family="monospace" font-size="9" text-anchor="middle">UI</text>
+  <text x="355" y="85" fill="#A1A1AA" font-family="monospace" font-size="7" text-anchor="middle">React</text>
+
+  <!-- Data Storage -->
+  <rect x="20" y="130" width="120" height="50" fill="none" stroke="#F43F5E" stroke-width="1.5" rx="4"/>
+  <text x="80" y="150" fill="#F43F5E" font-family="monospace" font-size="9" text-anchor="middle">Data Storage</text>
+  <text x="80" y="165" fill="#A1A1AA" font-family="monospace" font-size="7" text-anchor="middle">PostgreSQL • TimeSeries</text>
+
+  <!-- Analytics Engine -->
+  <rect x="160" y="130" width="120" height="50" fill="none" stroke="#A855F7" stroke-width="1.5" rx="4"/>
+  <text x="220" y="150" fill="#A855F7" font-family="monospace" font-size="9" text-anchor="middle">Analytics</text>
+  <text x="220" y="165" fill="#A1A1AA" font-family="monospace" font-size="7" text-anchor="middle">Anomaly Detection</text>
+
+  <!-- Alert System -->
+  <rect x="300" y="130" width="80" height="50" fill="none" stroke="#22D3EE" stroke-width="1.5" rx="4"/>
+  <text x="340" y="150" fill="#22D3EE" font-family="monospace" font-size="9" text-anchor="middle">Alerts</text>
+  <text x="340" y="165" fill="#A1A1AA" font-family="monospace" font-size="7" text-anchor="middle">Real-time</text>
+
+  <!-- Infrastructure -->
+  <rect x="20" y="200" width="360" height="80" fill="none" stroke="#6366F1" stroke-width="1.5" rx="4"/>
+  <text x="200" y="220" fill="#6366F1" font-family="monospace" font-size="9" text-anchor="middle">Infrastructure & MLOps</text>
+  <text x="200" y="235" fill="#A1A1AA" font-family="monospace" font-size="7" text-anchor="middle">Python • Docker • AWS EC2</text>
+  <text x="200" y="250" fill="#A1A1AA" font-family="monospace" font-size="7" text-anchor="middle">Model Training • Deployment • Monitoring</text>
+  <text x="200" y="265" fill="#A1A1AA" font-family="monospace" font-size="7" text-anchor="middle">24/7 Equipment Health Tracking</text>
+
+  <!-- Connection arrows -->
+  <defs>
+    <marker id="arrow-fp" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L6,3 z" fill="#F43F5E" opacity="0.5"/>
+    </marker>
+  </defs>
+  <path d="M 110 77 L 130 77" stroke="#F43F5E" stroke-width="1" opacity="0.5" marker-end="url(#arrow-fp)"/>
+  <path d="M 220 77 L 240 77" stroke="#A855F7" stroke-width="1" opacity="0.5" marker-end="url(#arrow-fp)"/>
+  <path d="M 310 77 L 330 77" stroke="#22D3EE" stroke-width="1" opacity="0.5" marker-end="url(#arrow-fp)"/>
+
+  <!-- Status -->
+  <rect x="310" y="15" width="70" height="18" fill="rgba(16, 185, 129, 0.1)" stroke="#10B981" stroke-width="1" rx="4"/>
+  <text x="345" y="27" fill="#10B981" font-family="monospace" font-size="8" font-weight="bold" text-anchor="middle">LIVE - 85%</text>
+</svg>
