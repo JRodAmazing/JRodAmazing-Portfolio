@@ -70,6 +70,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.5s ease, color 0.5s ease;
+  /* Architecture blueprint watermark */
+  background-image: url('/architecture-blueprint.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 /* Light Mode Theme */

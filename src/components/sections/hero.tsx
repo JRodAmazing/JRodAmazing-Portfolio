@@ -65,60 +65,61 @@ export function Hero() {
             <span className="text-gradient">&quot;JRod&quot;</span> Roden
           </h1>
           <p className="mt-4 font-display text-display-sm font-semibold text-plasma md:text-display-md">
-            AI Solutions Architect | Production ML Engineer
+            AI Solutions Architect | AI Engineering Lead
           </p>
           <p className="mt-2 text-body-lg text-text-secondary md:text-body-xl">
-            Industrial AI Specialist • Aerospace Systems Engineer • Self-Taught Coder
+            Solutions Architecture • Production ML Engineering • Industrial AI Systems
           </p>
         </div>
 
         {/* Value Snapshot */}
         <div ref={valueRef} className="mb-10 max-w-4xl">
           <p className="mb-8 text-body-lg text-text-secondary md:text-body-xl">
-            I build production AI systems that work in the real world—not just in notebooks.
-            17+ years in aerospace and heavy equipment taught me that systems can&apos;t just work,
-            they must work <span className="font-semibold text-text-primary">perfectly</span>.
-            I bring that mindset to AI engineering.
+            I architect AI solutions that work in the real world—not just in notebooks.
+            From ML pipelines to LLM integrations, I design systems that scale.
+            17+ years in aerospace and heavy equipment taught me that architecture can&apos;t just work,
+            it must work <span className="font-semibold text-text-primary">perfectly</span>.
+            I bring that precision to AI engineering and solutions architecture.
           </p>
 
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="value-item rounded-xl border border-steel bg-tungsten/50 p-4">
               <div className="mb-2 flex items-center gap-2">
-                <span className="text-plasma">⚡</span>
-                <span className="font-display text-body-md font-semibold text-text-primary">17+ Years Experience</span>
+                <span className="text-plasma">🏗️</span>
+                <span className="font-display text-body-md font-semibold text-text-primary">Solutions Architecture</span>
               </div>
               <p className="text-body-sm text-text-secondary">
-                Aerospace test operations, $485M+ industrial portfolios, mission-critical systems
+                End-to-end AI system design, microservices, API gateways, observability patterns
               </p>
             </div>
 
             <div className="value-item rounded-xl border border-steel bg-tungsten/50 p-4">
               <div className="mb-2 flex items-center gap-2">
                 <span className="text-thrust">🚀</span>
-                <span className="font-display text-body-md font-semibold text-text-primary">Production AI Systems</span>
+                <span className="font-display text-body-md font-semibold text-text-primary">AI Engineering</span>
               </div>
               <p className="text-body-sm text-text-secondary">
-                LLMs, RAG pipelines, predictive ML, computer vision—all shipping in production
+                LLM pipelines, RAG systems, vector databases, ML deployment, real-time inference
               </p>
             </div>
 
             <div className="value-item rounded-xl border border-steel bg-tungsten/50 p-4">
               <div className="mb-2 flex items-center gap-2">
                 <span className="text-ion">🤖</span>
-                <span className="font-display text-body-md font-semibold text-text-primary">Industrial AI Specialist</span>
+                <span className="font-display text-body-md font-semibold text-text-primary">Industrial AI Systems</span>
               </div>
               <p className="text-body-sm text-text-secondary">
-                Fleet optimization, predictive maintenance, equipment diagnostics with ML + IoT
+                17+ years building mission-critical systems for aerospace and $485M+ portfolios
               </p>
             </div>
 
             <div className="value-item rounded-xl border border-steel bg-tungsten/50 p-4">
               <div className="mb-2 flex items-center gap-2">
                 <span className="text-nebula">🔄</span>
-                <span className="font-display text-body-md font-semibold text-text-primary">Full-Stack AI Engineer</span>
+                <span className="font-display text-body-md font-semibold text-text-primary">Full-Stack Engineering</span>
               </div>
               <p className="text-body-sm text-text-secondary">
-                Python/PyTorch → APIs → React/Next.js → Cloud → MLOps pipelines
+                Python/PyTorch → FastAPI/Node.js → React/Next.js → AWS/Azure → MLOps
               </p>
             </div>
           </div>

@@ -30,6 +30,15 @@ interface TechSkill {
 
 const ACTIVE_PROJECTS: Project[] = [
   {
+    id: 'dreamtrip',
+    name: 'Dream_Trip (PoC)',
+    description: 'AI travel planning platform with LLM-powered itinerary generation, RAG pipeline, and multi-API orchestration',
+    status: 'active',
+    progress: 45,
+    techStack: ['Python', 'FastAPI', 'React', 'OpenAI', 'Vector DB'],
+    lastUpdate: 'Today'
+  },
+  {
     id: 'fleetpulse',
     name: 'FleetPulse AI',
     description: 'Heavy equipment diagnostics with ML-powered predictive maintenance',
@@ -132,7 +141,7 @@ export default function MissionControlPage() {
                 Mission <span className="text-gradient">Control</span>
               </h1>
               <p className="text-body-lg text-text-secondary">
-                Real-time project status and development activity
+                Real-time AI architecture & engineering projects
               </p>
             </div>
             <div className="text-right">
@@ -158,7 +167,7 @@ export default function MissionControlPage() {
                   Status: Available for Hire
                 </div>
                 <div className="text-body-sm text-text-secondary">
-                  Open to full-time opportunities and contract work
+                  AI Solutions Architect • AI Engineering Lead • Senior AI Engineer roles
                 </div>
               </div>
             </div>

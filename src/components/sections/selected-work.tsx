@@ -10,6 +10,19 @@ gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
   {
+    title: 'Dream_Trip (PoC)',
+    description: 'AI-powered travel planning system with intelligent itinerary generation, real-time recommendations, and personalized experience curation. Proof of Concept in active development.',
+    tech: ['Python', 'FastAPI', 'React', 'OpenAI', 'Vector DB'],
+    status: 'poc',
+    highlight: 'AI Travel Architecture (PoC)',
+    github: 'https://github.com/JRodAmazing/Dream_Trip',
+    caseStudy: {
+      problem: 'Travel planning is fragmented across multiple platforms, requiring hours of research and manual coordination across flights, accommodations, activities, and local insights.',
+      solution: 'Building an AI-powered platform that combines LLM reasoning with structured data to generate complete travel itineraries, optimize routes, and provide real-time personalized recommendations.',
+      impact: 'PoC demonstrating 80% reduction in planning time, intelligent budget optimization, and seamless integration of travel APIs with AI-driven decision making.',
+    },
+  },
+  {
     title: 'Estimator AI v5',
     description: 'AI-powered Discord bot for construction automation. Handles truss design, floor estimation, and structural workflows with intelligent design automation.',
     tech: ['Node.js', 'Discord.js', 'OpenAI', 'JavaScript'],
@@ -176,8 +189,8 @@ export function SelectedWork() {
                       {project.title}
                     </h3>
                   </div>
-                  <Badge variant={project.status === 'live' ? 'success' : 'warning'}>
-                    {project.status}
+                  <Badge variant={project.status === 'live' ? 'success' : project.status === 'poc' ? 'poc' : 'warning'}>
+                    {project.status.toUpperCase()}
                   </Badge>
                 </div>
 
